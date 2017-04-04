@@ -12,8 +12,13 @@ public class Constant {
     public static String heweather_url = "http://guolin.tech/api/weather?";
 
     /**
+     * 必应图片地址
+     */
+    public static String bing_pic = "http://guolin.tech/api/bing_pic";
+
+    /**
      * 和风天气接口key
      */
-    public static String heweather_key = "f101c506e1a346be9ef5b913dce91895";
+    public static String heweather_key = "4b270f62a5624d99b45a31cb275867cb";
 
 }

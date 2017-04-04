@@ -5,6 +5,7 @@ import android.text.TextUtils;
 import com.aijiao.weather.db.City;
 import com.aijiao.weather.db.County;
 import com.aijiao.weather.db.Province;
+import com.google.gson.Gson;
 
 import org.json.JSONArray;
 import org.json.JSONObject;
@@ -14,6 +15,21 @@ import org.json.JSONObject;
  */
 
 public class Utility {
+
+    /**
+     * 将返回的JSON数据解析成Weather实体类
+     */
+    public static Weather handleWeatherResponse(String response) {
+        try {
+            JSONObject jsonObject = new JSONObject(response);
+            JSONArray jsonArray = jsonObject.getJSONArray("HeWeather");
+            String weatherContent = jsonArray.getJSONObject(0).toString();
+            return new Gson().fromJson(weatherContent, Weather.class);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
 
     /**
      * 解析服务器返回的省级数据
